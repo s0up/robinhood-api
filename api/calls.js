@@ -129,5 +129,15 @@ module.exports = {
          }
       },
       method: 'GET'
+   },
+   'getQuote': {
+      description: 'Get quote on a single security via ticket symbol',
+      path: '/quotes/%symbol%/',
+      fields: {
+         symbol: {
+            required: true
+         }
+      },
+      method: 'GET'
    }
 };

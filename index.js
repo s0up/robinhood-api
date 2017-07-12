@@ -32,6 +32,11 @@ class RobinHood{
 
                if('enum' in options && options.enum.indexOf(opts[field]) === -1)
                   throw new APIError('E_ENUM_FAILURE', 'Field: ' + field + ' Expects: ' + options.enum.join(','));
+
+               if(call.path.includes('%' + field + '%')){
+                  call.path = call.path.replace('%' + field + '%', opts[field]);
+                  delete opts[field];
+               }
             });
 
             let res = await self.request(call.method, call.path, opts);
@@ -97,7 +102,7 @@ class RobinHood{
             reqOpt.formData = data;
 
          if(requestType === 'GET' && typeof data === 'object' && Object.keys(data).length !== 0)
-            reqOpt.url += '?' + querystring.stringify(data);
+            reqOpt.url += '?' + querystring.stringify(data, '&', '=', {encodeURIComponent: function(item){return item;}});
 
          let result = await request(reqOpt);
 
