@@ -140,7 +140,10 @@ module.exports = {
       path: '/quotes/',
       fields: {
          symbols: {
-            required: true
+            required: true,
+            transform: function(i){
+               return i.toUpperCase();
+            }
          }
       },
       method: 'GET'
@@ -150,7 +153,10 @@ module.exports = {
       path: '/quotes/%symbol%/',
       fields: {
          symbol: {
-            required: true
+            required: true,
+            transform: function(i){
+               return i.toUpperCase();
+            }
          }
       },
       method: 'GET'

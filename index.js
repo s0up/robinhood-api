@@ -33,6 +33,9 @@ class RobinHood{
                if('enum' in options && options.enum.indexOf(opts[field]) === -1)
                   throw new APIError('E_ENUM_FAILURE', 'Field: ' + field + ' Expects: ' + options.enum.join(','));
 
+               if('transform' in options && typeof options.transform === 'function')
+                  opts[field] = options.transform(opts[field]);
+
                if(call.path.includes('%' + field + '%')){
                   call.path = call.path.replace('%' + field + '%', opts[field]);
                   delete opts[field];
