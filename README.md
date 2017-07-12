@@ -34,3 +34,11 @@ const robinhood = new RobinHood();
   }
 })();
 ```
+
+# Dealing with response URLs
+
+If you get a "next" token, or account, instrument, etc (URLs in API responses that when requested will resolve assets), you can simply request that location with the getResource() method.
+
+```javascript
+  let someCoolResource = await robinhood.getResource(someResourceUrl);
+```
