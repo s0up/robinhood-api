@@ -46,6 +46,16 @@ module.exports = {
       fields: {},
       method: 'GET'
    },
+   'getOrder': {
+      description: 'Get an order via the order_id parameter.',
+      path: '/orders/%order_id%/',
+      fields: {
+         order_id: {
+            required: true
+         }
+      },
+      method: 'GET'
+   },
    'getRecentOrders': {
       description: 'Get recently placed orders.',
       path: '/orders/',
