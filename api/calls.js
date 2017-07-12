@@ -43,7 +43,12 @@ module.exports = {
    getPositions: {
       description: 'Get the current stock positions being held.',
       path: '/positions/',
-      fields: {},
+      fields: {
+         nonzero: {
+            required: false,
+            enum: [true, false]
+         }
+      },
       method: 'GET'
    },
    'getOrder': {
