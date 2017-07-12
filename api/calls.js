@@ -62,10 +62,72 @@ module.exports = {
       },
       method: 'GET'
    },
+   'placeOrder' : {
+      description: 'Buy or sell a security.',
+      path: '/orders/',
+      fields: {
+         account: {
+            required: true
+         },
+         instrument: {
+            required: true
+         },
+         symbol: {
+            required: true
+         },
+         type: {
+            required: true,
+            enum: ['market', 'limit']
+         },
+         time_in_force: {
+            required: true,
+            enum: ['gfd', 'gtc', 'ioc', 'fok', 'opg'],
+         },
+         trigger: {
+            required: true,
+            enum: ['immediate', 'stop']
+         },
+         price: {
+            required: false, /*Only required when type equals limit*/
+         },
+         stop_price: {
+            required: false, /*Only required when trigger equals stop*/
+         },
+         quantity: {
+            required: true
+         },
+         side: {
+            required: true,
+            enum: ['buy', 'sell']
+         },
+         extended_hours: {
+            required: false,
+            enum: [true, false]
+         },
+         override_day_trade_checks: {
+            required: false,
+            enum: [true, false]
+         },
+         override_dtbp_checks: {
+            required: false,
+            enum: [true, false]
+         }
+      }
+   },
    'getInstruments': {
       description: 'Get instruments list.',
       path: '/instruments/',
       fields: {},
+      method: 'GET'
+   },
+   'getQuotes': {
+      description: 'Get quote on a security via ticker symbols (comma separated list)',
+      path: '/quotes/',
+      fields: {
+         symbols: {
+            required: true
+         }
+      },
       method: 'GET'
    }
 };

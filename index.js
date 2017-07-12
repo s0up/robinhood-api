@@ -29,6 +29,9 @@ class RobinHood{
             _.each(call.fields, function(options, field){
                if('required' in options && options.required === true && field in opts === false)
                   throw new APIError('E_REQUIRED_FIELD', 'Field: ' + field);
+
+               if('enum' in options && options.enum.indexOf(opts[field]) === -1)
+                  throw new APIError('E_ENUM_FAILURE', 'Field: ' + field + ' Expects: ' + options.enum.join(','));
             });
 
             let res = await self.request(call.method, call.path, opts);
@@ -94,17 +97,16 @@ class RobinHood{
             reqOpt.formData = data;
 
          if(requestType === 'GET' && typeof data === 'object' && Object.keys(data).length !== 0)
-            reqOpt.url += '&' + querystring.parse(data);
+            reqOpt.url += '?' + querystring.stringify(data);
 
          let result = await request(reqOpt);
 
          return self.parseResult(result);
       }catch(e){
-         try{
+         if('error' in e)
             throw new APIError('E_API_ERROR', e.error);
-         }catch(e){
-            throw e;
-         }
+
+         throw e;
       }
    }
 
