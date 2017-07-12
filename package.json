@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/s0up/robinhood-api.git"
+    "url": "https://github.com/s0up/robinhood-api"
   },
   "keywords": [
     "robinhood",
@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/s0up/robinhood-api/issues"
   },
-  "homepage": "https://github.com/s0up/robinhood-api#readme"
+  "homepage": "https://github.com/s0up/robinhood-api#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
+  }
 }
