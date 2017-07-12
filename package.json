@@ -1,0 +1,25 @@
+{
+  "name": "robinhood-api",
+  "version": "1.0.0",
+  "description": "Robinhood API Wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/s0up/robinhood-api.git"
+  },
+  "keywords": [
+    "robinhood",
+    "nodejs",
+    "node",
+    "s0up"
+  ],
+  "author": "s0up",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s0up/robinhood-api/issues"
+  },
+  "homepage": "https://github.com/s0up/robinhood-api#readme"
+}
