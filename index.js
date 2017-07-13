@@ -27,10 +27,10 @@ class RobinHood{
 
          try{
             _.each(call.fields, function(options, field){
-               if('required' in options && options.required === true && (field in opts === false || typeof opts[field] === 'undefined' || opts[field] === '' || opts[field] === null))
+               if('required' in options && options.required === true && (field in opts === false || typeof opts[field] === 'undefined' || opts[field] === null))
                   throw new APIError('E_REQUIRED_FIELD', 'Field: ' + field);
 
-               if('enum' in options && options.enum.indexOf(opts[field]) === -1)
+               if('enum' in options && options.enum.indexOf(opts[field]) === -1 && field in opts)
                   throw new APIError('E_ENUM_FAILURE', 'Field: ' + field + ' Expects: ' + options.enum.join(','));
 
                if('transform' in options && typeof options.transform === 'function')

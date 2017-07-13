@@ -28,6 +28,39 @@ module.exports = {
       },
       method: 'POST'
    },
+   'getACHRelationships': {
+      description: 'Get the ACH methods associated with this account.',
+      path: '/ach/relationships/',
+      fields: {},
+      method: 'GET'
+   },
+   'getACHRelationship': {
+      description: 'Get an ACH relationship by ID (retrieved by getACHRelationships())',
+      path: '/ach/relationships/%relationship_id%/',
+      fields: {
+         relationship_id: {
+            required: true
+         }
+      },
+      method: 'GET'
+   },
+   'achTransfer': {
+      description: 'Perform an ACH transfer to fund this account.',
+      path: '/ach/deposit_schedules/',
+      fields: {
+         ach_relationship: {
+            required: true /*ACH relationship URL from getACHRelationship() call*/
+         },
+         amount: {
+            required: true
+         },
+         frequency: {
+            required: false,
+            enum: ['weekly', 'biweekly', 'monthly', 'quarterly']
+         }
+      },
+      method: 'POST'
+   },
    'getUserData': {
       description: 'Get the user\'s basic account information.',
       path: '/user/',

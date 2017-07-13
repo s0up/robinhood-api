@@ -42,3 +42,79 @@ If you get a "next" token, or account, instrument, etc (URLs in API responses th
 ```javascript
   let someCoolResource = await robinhood.getResource(someResourceUrl);
 ```
+
+#General API Calls 
+## robinhood.login(opts)
+Login to RobinHood with your user credentials.
+### Options
+* username - Required: true
+* password - Required: true
+## robinhood.mfaCode(opts)
+Login using a two-step authentication code.
+### Options
+* username - Required: true
+* password - Required: true
+* mfa_code - Required: true
+## robinhood.getACHRelationships(opts)
+Get the ACH methods associated with this account.
+### Options
+## robinhood.getACHRelationship(opts)
+Get an ACH relationship by ID (retrieved by getACHRelationships())
+### Options
+* relationship_id - Required: true
+## robinhood.achTransfer(opts)
+Perform an ACH transfer to fund this account.
+### Options
+* ach_relationship - Required: true
+* amount - Required: true
+* frequency - Required: false (Valid Values: weekly,biweekly,monthly,quarterly)
+## robinhood.getUserData(opts)
+Get the user's basic account information.
+### Options
+## robinhood.getAccounts(opts)
+Get the accounts associated with the user credentials.
+### Options
+## robinhood.getUserInvestmentProfile(opts)
+Get the user's investment profile.
+### Options
+## robinhood.getPositions(opts)
+Get the current stock positions being held.
+### Options
+* nonzero - Required: false (Valid Values: true,false)
+## robinhood.getOrder(opts)
+Get an order via the order_id parameter.
+### Options
+* order_id - Required: true
+## robinhood.getRecentOrders(opts)
+Get recently placed orders.
+### Options
+* updated_at - Required: false
+* instrument - Required: false
+* cursor - Required: false
+## robinhood.placeOrder(opts)
+Buy or sell a security.
+### Options
+* account - Required: true
+* instrument - Required: true
+* symbol - Required: true
+* type - Required: true (Valid Values: market,limit)
+* time_in_force - Required: true (Valid Values: gfd,gtc,ioc,fok,opg)
+* trigger - Required: true (Valid Values: immediate,stop)
+* price - Required: false
+* stop_price - Required: false
+* quantity - Required: true
+* side - Required: true (Valid Values: buy,sell)
+* extended_hours - Required: false (Valid Values: true,false)
+* override_day_trade_checks - Required: false (Valid Values: true,false)
+* override_dtbp_checks - Required: false (Valid Values: true,false)
+## robinhood.getInstruments(opts)
+Get instruments list.
+### Options
+## robinhood.getQuotes(opts)
+Get quote on a security via ticker symbols (comma separated list)
+### Options
+* symbols - Required: true
+## robinhood.getQuote(opts)
+Get quote on a single security via ticket symbol
+### Options
+* symbol - Required: true
