@@ -43,7 +43,7 @@ If you get a "next" token, or account, instrument, etc (URLs in API responses th
   let someCoolResource = await robinhood.getResource(someResourceUrl);
 ```
 
-#General API Calls 
+# General API Calls 
 ## robinhood.login(opts)
 Login to RobinHood with your user credentials.
 ### Options

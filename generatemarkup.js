@@ -22,9 +22,9 @@ _.each(calls, function(options, call){
    }
 });
 
-let readme = fs.readFileSync('README.md').toString().split('#General API Calls');
+let readme = fs.readFileSync('README.md').toString().split('# General API Calls');
 
-readme = readme[0] + "#General API Calls \n" + markup;
+readme = readme[0] + "# General API Calls \n" + markup;
 
 fs.writeFileSync('README.md', readme);
 
