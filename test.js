@@ -5,8 +5,8 @@ const RobinHood = require('./index.js');
       let rh = new RobinHood();
       
       await rh.login({username: process.env.ROBINHOOD_USERNAME, password: process.env.ROBINHOOD_PASSWORD});
-      
-      console.log('We are logged in!');
+
+      console.log('Logged in!');
    }catch(e){
       console.log('Error Code ' + e.code);
       console.log(e);

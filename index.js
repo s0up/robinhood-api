@@ -27,7 +27,7 @@ class RobinHood{
 
          try{
             _.each(call.fields, function(options, field){
-               if('required' in options && options.required === true && field in opts === false)
+               if('required' in options && options.required === true && (field in opts === false || typeof opts[field] === 'undefined' || opts[field] === '' || opts[field] === null))
                   throw new APIError('E_REQUIRED_FIELD', 'Field: ' + field);
 
                if('enum' in options && options.enum.indexOf(opts[field]) === -1)

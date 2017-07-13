@@ -34,6 +34,12 @@ module.exports = {
       fields: {},
       method: 'GET'
    },
+   'getAccounts': {
+      description: 'Get the accounts associated with the user credentials.',
+      path: '/accounts/',
+      fields: {},
+      method: 'GET'
+   },
    'getUserInvestmentProfile' : {
       description: 'Get the user\'s investment profile.',
       path: '/user/investment_profile/',
