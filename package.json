@@ -1,6 +1,6 @@
 {
   "name": "robinhood-api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Robinhood API Wrapper",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/s0up/robinhood-api#readme",
   "dependencies": {
     "lodash": "^4.17.4",
+    "request": "^2.81.0",
     "request-promise-native": "^1.0.4"
   }
 }
