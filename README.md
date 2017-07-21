@@ -81,6 +81,14 @@ Get the user's investment profile.
 Get the current stock positions being held.
 ### Options
 * nonzero - Required: false (Valid Values: true,false)
+## robinhood.getPortfolio(opts)
+undefined
+### Options
+* account_number - Required: true
+## robinhood.getHistoricals(opts)
+Get the user's portfolio historicals
+### Options
+* account_number - Required: true
 ## robinhood.getOrder(opts)
 Get an order via the order_id parameter.
 ### Options

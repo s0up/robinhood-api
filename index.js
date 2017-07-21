@@ -25,6 +25,8 @@ class RobinHood{
          if(typeof opts === 'undefined' || opts === null)
             opts = {};
 
+         let path = null;
+
          try{
             _.each(call.fields, function(options, field){
                if('required' in options && options.required === true && (field in opts === false || typeof opts[field] === 'undefined' || opts[field] === null))
@@ -37,12 +39,12 @@ class RobinHood{
                   opts[field] = options.transform(opts[field]);
 
                if(call.path.includes('%' + field + '%')){
-                  call.path = call.path.replace('%' + field + '%', opts[field]);
+                  path = call.path.replace('%' + field + '%', opts[field]);
                   delete opts[field];
                }
             });
 
-            let res = await self.request(call.method, call.path, opts);
+            let res = await self.request(call.method, (path != null) ? path : call.path, opts);
 
             return res;
          }catch(e){

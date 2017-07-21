@@ -90,6 +90,26 @@ module.exports = {
       },
       method: 'GET'
    },
+   getPortfolio: {
+      desription: 'Get the user\'s portfolio by account ID',
+      path: '/portfolios/%account_number%',
+      fields: {
+         account_number: {
+            required: true
+         }
+      },
+      method: 'GET'
+   },
+   getHistoricals: {
+      description: 'Get the user\'s portfolio historicals',
+      path: '/portfolios/historicals/%account_number%',
+      fields: {
+         account_number: {
+            required: true
+         }
+      },
+      method: 'GET'
+   },
    'getOrder': {
       description: 'Get an order via the order_id parameter.',
       path: '/orders/%order_id%/',
