@@ -7,9 +7,9 @@ const RobinHood = require('./index.js');
       await rh.login({username: process.env.ROBINHOOD_USERNAME, password: process.env.ROBINHOOD_PASSWORD});
 
       //let test = await rh.getAccounts();
-      test = await rh.getQuote({symbol: 'HRL'});
+      test = await rh.getUserData();
       console.log(test);
-      test = await rh.getQuote({symbol: 'JNJ'});
+      test = await rh.getAccounts();
       console.log(test);
       console.log('Logged in!');
    }catch(e){

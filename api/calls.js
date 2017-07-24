@@ -91,7 +91,7 @@ module.exports = {
       method: 'GET'
    },
    getPortfolio: {
-      desription: 'Get the user\'s portfolio by account ID',
+      description: 'Get the user\'s portfolio by account ID',
       path: '/portfolios/%account_number%',
       fields: {
          account_number: {
@@ -185,6 +185,15 @@ module.exports = {
          override_dtbp_checks: {
             required: false,
             enum: [true, false]
+         }
+      }
+   },
+   'cancelOrder': {
+      description: 'Cancel an active order',
+      path: '/orders/%order_id%/cancel/',
+      fields: {
+         order_id: {
+            required: true
          }
       }
    },
