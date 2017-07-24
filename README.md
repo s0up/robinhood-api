@@ -82,7 +82,7 @@ Get the current stock positions being held.
 ### Options
 * nonzero - Required: false (Valid Values: true,false)
 ## robinhood.getPortfolio(opts)
-undefined
+Get the user's portfolio by account ID
 ### Options
 * account_number - Required: true
 ## robinhood.getHistoricals(opts)
@@ -115,6 +115,10 @@ Buy or sell a security.
 * extended_hours - Required: false (Valid Values: true,false)
 * override_day_trade_checks - Required: false (Valid Values: true,false)
 * override_dtbp_checks - Required: false (Valid Values: true,false)
+## robinhood.cancelOrder(opts)
+Cancel an active order
+### Options
+* order_id - Required: true
 ## robinhood.getInstruments(opts)
 Get instruments list.
 ### Options
