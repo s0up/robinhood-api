@@ -113,8 +113,16 @@ class RobinHood{
 
          return self.parseResult(result);
       }catch(e){
-         if('error' in e)
-            throw new APIError('E_API_ERROR', e.error);
+         if('error' in e){
+           if(typeof e.error === 'object'){
+             let keys = Object.keys(e.error);
+
+             if(keys.length > 0 && e['error'][keys[0]].length > 0){
+               throw new APIError('E_API_ERROR', e['error'][keys[0]][0]);
+             }
+           }
+           throw new APIError('E_API_ERROR', e.error);
+         }
 
          throw e;
       }
