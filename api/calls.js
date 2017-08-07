@@ -186,7 +186,8 @@ module.exports = {
             required: false,
             enum: [true, false]
          }
-      }
+      },
+      method: 'POST'
    },
    'cancelOrder': {
       description: 'Cancel an active order',
