@@ -63,17 +63,23 @@ Get an ACH relationship by ID (retrieved by getACHRelationships())
 ### Options
 * relationship_id - Required: true
 ## robinhood.automaticACHTransfer(opts)
-Perform an ACH transfer to fund this account.
+Add a scheduled ACH transfer to fund this account.
 ### Options
 * ach_relationship - Required: true
 * amount - Required: true
 * frequency - Required: false (Valid Values: weekly,biweekly,monthly,quarterly)
+## robinhood.getAutomaticACHTransfer(opts)
+Get scheduled ACH transfers.
+### Options
 ## robinhood.ACHTransfer(opts)
 Perform a one time ACH transfer to or from your bank account.
 ### Options
 * amount - Required: true
 * ach_relationship - Required: true
 * direction - Required: true (Valid Values: widthdraw,deposit)
+## robinhood.getACHTransfer(opts)
+Get list of one time ACH transfers to or from your bank account.
+### Options
 ## robinhood.getUserData(opts)
 Get the user's basic account information.
 ### Options
