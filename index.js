@@ -128,7 +128,11 @@ class RobinHood{
              let keys = Object.keys(e.error);
 
              if(keys.length > 0 && e['error'][keys[0]].length > 0){
-               throw new APIError('E_API_ERROR', e['error'][keys[0]][0]);
+               if(Array.isArray(e['error'][keys[0]])){
+                 throw new APIError('E_API_ERROR', e['error'][keys[0]][0]);
+               }else{
+                 throw new APIError('E_API_ERROR', e['error'][keys[0]]);
+               }
              }
            }
            throw new APIError('E_API_ERROR', e.error);
