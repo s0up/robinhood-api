@@ -83,6 +83,16 @@ class RobinHood{
       }
    }
 
+   async postResource(url){
+     let self = this;
+
+     try{
+       return self.request('POST', url.replace(self.baseUrl, ''));
+     }catch(e){
+       throw e;
+     }
+   }
+
    async request(requestType, path, data){
       let self = this;
       let headers = {
