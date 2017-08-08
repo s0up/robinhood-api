@@ -70,6 +70,12 @@ class RobinHood{
          'Options' : {}
       });
 
+      details.push({
+         'Method' : 'robinhood.postResource(url)',
+         'Description' : 'Post to a URL from an API response such an order cancellation request.',
+         'Options' : {}
+      });
+
       return details;
    }
 

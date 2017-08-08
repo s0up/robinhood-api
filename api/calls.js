@@ -44,7 +44,7 @@ module.exports = {
       },
       method: 'GET'
    },
-   'achTransfer': {
+   'automaticACHTransfer': {
       description: 'Perform an ACH transfer to fund this account.',
       path: '/ach/deposit_schedules/',
       fields: {
@@ -60,6 +60,23 @@ module.exports = {
          }
       },
       method: 'POST'
+   },
+   'ACHTransfer': {
+     description: 'Perform a one time ACH transfer to or from your bank account.',
+     path: '/ach/transfers/',
+     fields: {
+       amount: {
+         required: true
+       },
+       ach_relationship: {
+         required: true
+       },
+       direction: {
+         required: true,
+         enum: ['widthdraw', 'deposit']
+       }
+     },
+     method: 'POST'
    },
    'getUserData': {
       description: 'Get the user\'s basic account information.',
