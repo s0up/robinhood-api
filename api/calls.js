@@ -79,7 +79,7 @@ module.exports = {
       },
       direction: {
         required: true,
-        enum: ['widthdraw', 'deposit']
+        enum: ['withdraw', 'deposit']
       }
     },
     method: 'POST'
