@@ -150,3 +150,6 @@ Get quote on a security via ticker symbols (comma separated list)
 Get quote on a single security via ticket symbol
 ### Options
 * symbol - Required: true
+## robinhood.getMarkets(opts)
+Get market data for the different exchanges
+### Options

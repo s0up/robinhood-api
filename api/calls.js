@@ -289,5 +289,11 @@ module.exports = {
       }
     },
     method: 'GET'
+  },
+  'getMarkets': {
+    description: 'Get market data for the different exchanges',
+    path: '/markets/',
+    fields: {},
+    method: 'GET'
   }
 };
