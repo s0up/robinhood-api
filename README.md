@@ -76,7 +76,7 @@ Perform a one time ACH transfer to or from your bank account.
 ### Options
 * amount - Required: true
 * ach_relationship - Required: true
-* direction - Required: true (Valid Values: widthdraw,deposit)
+* direction - Required: true (Valid Values: withdraw,deposit)
 ## robinhood.getACHTransfer(opts)
 Get list of one time ACH transfers to or from your bank account.
 ### Options
@@ -101,6 +101,14 @@ Get the user's portfolio by account ID
 Get the user's portfolio historicals
 ### Options
 * account_number - Required: true
+* interval - Required: false (Valid Values: week,day,10minute,5minute)
+* span - Required: false (Valid Values: day,week,year,5year,all)
+## robinhood.getTickerHistoricals(opts)
+Get historicals for a particular symbol
+### Options
+* symbol - Required: true
+* interval - Required: false (Valid Values: week,day,10minute,5minute)
+* span - Required: false (Valid Values: day,week,year,5year,all)
 ## robinhood.getOrder(opts)
 Get an order via the order_id parameter.
 ### Options

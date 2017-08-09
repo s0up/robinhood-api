@@ -131,10 +131,39 @@ module.exports = {
   },
   getHistoricals: {
     description: 'Get the user\'s portfolio historicals',
-    path: '/portfolios/historicals/%account_number%',
+    path: '/portfolios/historicals/%account_number%/',
     fields: {
       account_number: {
         required: true
+      },
+      interval: {
+        required: false,
+        enum: ['week', 'day', '10minute', '5minute']
+      },
+      span: {
+        required: false,
+        enum: ['day', 'week', 'year', '5year', 'all']
+      }
+    },
+    method: 'GET'
+  },
+  getTickerHistoricals: {
+    description: 'Get historicals for a particular symbol',
+    path: '/quotes/historicals/%symbol%/',
+    fields: {
+      symbol: {
+        required: true,
+        transform(i){
+          return i.toUpperCase();
+        }
+      },
+      interval: {
+        required: false,
+        enum: ['week', 'day', '10minute', '5minute']
+      },
+      span: {
+        required: false,
+        enum: ['day', 'week', 'year', '5year', 'all']
       }
     },
     method: 'GET'
