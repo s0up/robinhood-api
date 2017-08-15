@@ -261,7 +261,11 @@ module.exports = {
   'getInstruments': {
     description: 'Get instruments list.',
     path: '/instruments/',
-    fields: {},
+    fields: {
+      query: {
+        required: false
+      }
+    },
     method: 'GET'
   },
   'getQuotes': {
