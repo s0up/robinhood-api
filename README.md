@@ -142,14 +142,60 @@ Cancel an active order
 ## robinhood.getInstruments(opts)
 Get instruments list.
 ### Options
+* query - Required: false
 ## robinhood.getQuotes(opts)
 Get quote on a security via ticker symbols (comma separated list)
 ### Options
 * symbols - Required: true
 ## robinhood.getQuote(opts)
-Get quote on a single security via ticket symbol
+Get quote on a single security via ticker symbol
 ### Options
 * symbol - Required: true
 ## robinhood.getMarkets(opts)
 Get market data for the different exchanges
 ### Options
+## robinhood.getFundamentals(opts)
+Get fundamental data for ticker symbols (comma separated list)
+### Options
+* symbols - Required: true
+## robinhood.getWatchlists(opts)
+Get list of watchlists for a user
+### Options
+## robinhood.reorderWatchlist(opts)
+Reorder a watchlist.  UUIDs is a list of instrument URLs (comma separated list)
+### Options
+* name - Required: true
+* uuids - Required: true
+## robinhood.createWatchlist(opts)
+Create a new watchlist
+### Options
+* name - Required: true
+## robinhood.getDividends(opts)
+Retrieve user dividend payouts
+### Options
+## robinhood.getDocuments(opts)
+Retrieve user documents
+### Options
+## robinhood.getSP500Movers(opts)
+Get S&P 500 movers
+### Options
+* direction - Required: true (Valid Values: up,down)
+## robinhood.getCompaniesReportingEarningsWithin(opts)
+Get companies reporting earnings within X days
+### Options
+* range - Required: true
+## robinhood.getEarnings(opts)
+Get earnings by stock symbol
+### Options
+* symbol - Required: true
+## robinhood.getCards(opts)
+Get cards (notification) stack
+### Options
+## robinhood.dismissCard(opts)
+Dismiss a card by the notification ID
+### Options
+* id - Required: true
+## robinhood.getSplits(opts)
+Get stock splits by instrument
+### Options
+* instrument - Required: true

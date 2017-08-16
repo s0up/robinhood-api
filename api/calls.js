@@ -282,7 +282,7 @@ module.exports = {
     method: 'GET'
   },
   'getQuote': {
-    description: 'Get quote on a single security via ticket symbol',
+    description: 'Get quote on a single security via ticker symbol',
     path: '/quotes/%symbol%/',
     fields: {
       symbol: {
@@ -298,6 +298,123 @@ module.exports = {
     description: 'Get market data for the different exchanges',
     path: '/markets/',
     fields: {},
+    method: 'GET'
+  },
+  'getFundamentals': {
+    description: 'Get fundamental data for ticker symbols (comma separated list)',
+    path: '/fundamentals/',
+    fields: {
+      symbols: {
+        required: true,
+        transform: function(i){
+          return i.toUpperCase();
+        }
+      }
+    },
+    method: 'GET'
+  },
+  'getWatchlists': {
+    description: 'Get list of watchlists for a user',
+    path: '/watchlists/',
+    fields: {},
+    method: 'GET'
+  },
+  'reorderWatchlist': {
+    description: 'Reorder a watchlist.  UUIDs is a list of instrument URLs (comma separated list)',
+    path: '/watchlists/%name%/reorder/',
+    fields: {
+      name: {
+        required: true
+      },
+      uuids: {
+        required: true
+      }
+    },
+    method: 'POST'
+  },
+  'createWatchlist': {
+    description: 'Create a new watchlist',
+    path: '/watchlists/',
+    fields: {
+      name: {
+        required: true
+      }
+    },
+    method: 'POST'
+  },
+  'getDividends': {
+    description: 'Retrieve user dividend payouts',
+    path: '/dividends/',
+    fields: {},
+    method: 'GET'
+  },
+  'getDocuments': {
+    description: 'Retrieve user documents',
+    path: '/documents/',
+    fields: {},
+    method: 'GET'
+  },
+  'getSP500Movers': {
+    description: 'Get S&P 500 movers',
+    path: '/midlands/movers/sp500/',
+    fields: {
+      direction: {
+        enum: ['up', 'down'],
+        required: true
+      }
+    },
+    method: 'GET'
+  },
+  'getCompaniesReportingEarningsWithin': {
+    description: 'Get companies reporting earnings within X days',
+    path: '/marketdata/earnings/',
+    fields: {
+      range: {
+        required: true,
+        transform: function(i){
+          return i + 'day';
+        }
+      }
+    },
+    method: 'GET'
+  },
+  'getEarnings': {
+    description: 'Get earnings by stock symbol',
+    path: '/marketdata/earnings/',
+    fields: {
+      symbol: {
+        required: true,
+        transform: function(i){
+          return i.toUpperCase();
+        }
+      }
+    },
+    method: 'GET'
+  },
+  'getCards': {
+    description: 'Get cards (notification) stack',
+    path: '/midlands/notifications/stack/',
+    fields: {},
+    method: 'GET'
+  },
+  'dismissCard': {
+    description: 'Dismiss a card by the notification ID',
+    path: '/midlands/notifications/stack/%id%/dismiss/',
+    fields: {
+      id: {
+        required: true
+      }
+    },
+    method: 'POST'
+  },
+  'getSplits': {
+    description: 'Get stock splits by instrument',
+    path: '/instruments/%instrument%/splits/',
+    fields: {
+      instrument: {
+        required: true
+      }
+    },
     method: 'GET'
   }
 };
