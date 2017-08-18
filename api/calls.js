@@ -114,7 +114,10 @@ module.exports = {
     fields: {
       nonzero: {
         required: false,
-        enum: [true, false]
+        enum: [true, false],
+        transform: function(i){
+          return (i == true) ? "true" : "false"
+        }
       }
     },
     method: 'GET'
@@ -236,15 +239,24 @@ module.exports = {
       },
       extended_hours: {
         required: false,
-        enum: [true, false]
+        enum: [true, false],
+        transform: function(i){
+          return (i == true) ? "true" : "false"
+        }
       },
       override_day_trade_checks: {
         required: false,
-        enum: [true, false]
+        enum: [true, false],
+        transform: function(i){
+          return (i == true) ? "true" : "false"
+        }
       },
       override_dtbp_checks: {
         required: false,
-        enum: [true, false]
+        enum: [true, false],
+        transform: function(i){
+          return (i == true) ? "true" : "false"
+        }
       }
     },
     method: 'POST'
