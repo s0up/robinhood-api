@@ -141,11 +141,14 @@ module.exports = {
       },
       interval: {
         required: false,
-        enum: ['week', 'day', '10minute', '5minute']
+        enum: ['', 'week', 'day', '10minute', '5minute']
       },
       span: {
         required: false,
-        enum: ['day', 'week', 'year', '5year', 'all']
+        enum: ['', 'day', 'week', 'year', '5year', 'all']
+      },
+      bounds: {
+        required: false
       }
     },
     method: 'GET'
@@ -162,11 +165,14 @@ module.exports = {
       },
       interval: {
         required: false,
-        enum: ['week', 'day', '10minute', '5minute']
+        enum: ['', 'week', 'day', '10minute', '5minute']
       },
       span: {
         required: false,
-        enum: ['day', 'week', 'year', '5year', 'all']
+        enum: ['', 'day', 'week', 'year', '5year', 'all']
+      },
+      bounds: {
+        required: false
       }
     },
     method: 'GET'
