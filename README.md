@@ -25,7 +25,7 @@ const robinhood = new RobinHood();
 
 (async () => {
   try{
-    let loginResult = await robinhood.login('email@test.com', 'mycoolpassword');
+    let loginResult = await robinhood.login({ username:'email@test.com', password:'mycoolpassword' });
 
     let myUserData = await robinhood.getUserData();
     console.log(myUserData);
