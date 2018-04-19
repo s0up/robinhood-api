@@ -129,6 +129,7 @@ class RobinHood{
 
          return self.parseResult(result);
       }catch(e){
+         console.error(e)
          if('error' in e){
            if(typeof e.error === 'object'){
              let keys = Object.keys(e.error);
