@@ -274,7 +274,8 @@ module.exports = {
       order_id: {
         required: true
       }
-    }
+    },
+    method: 'POST'
   },
   'getInstruments': {
     description: 'Get instruments list.',
